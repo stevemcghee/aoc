@@ -8,11 +8,7 @@ import (
 	"strconv"
 )
 
-func main() {
-	main02()
-}
-
-func main01() {
+func main02() {
 	file, err := os.Open("/Users/smcghee/src/aoc/01/input")
 	if err != nil {
 		log.Fatal(err)
@@ -39,9 +35,11 @@ func main01() {
 
 	for i := 0; i < numLen; i++ {
 		for j := i; j < numLen; j++ {
-			if input[i]+input[j] == 2020 {
-				fmt.Println(input[i], "and", input[j])
-				fmt.Println(" ==> ", input[i]*input[j])
+			for k := j; k < numLen; k++ {
+				if input[i]+input[j]+input[k] == 2020 {
+					fmt.Println(input[i], "and", input[j], "and", input[k])
+					fmt.Println(" ==> ", input[i]*input[j]*input[k])
+				}
 			}
 		}
 	}
